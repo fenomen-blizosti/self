@@ -1,0 +1,354 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Кто я в сценарии своей жизни?</title>
+<meta name="description" content="Тест психолога Александры Фурсовой по модели личностных адаптаций Вэнна Джойнса">
+<meta property="og:title" content="Кто я в сценарии своей жизни?">
+<meta property="og:description" content="37 утверждений — и вы узнаете свою ведущую адаптацию, её силу и ловушку">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,500;0,600;0,700;1,500&family=Lora:ital,wght@0,400;0,500;1,400&family=Manrope:wght@400;500;600;700&family=Marck+Script&display=swap">
+<style>
+/* Layout: one centred card column (max 640px); intro → one statement per screen → result profile */
+:root{
+  --paper:#fbf4ee; --surface:#fffaf6; --blush:#f4e2d7; --ink:#4b3228; --muted:#8a6c5e; --line:#e9d6c9;
+  --accent:#8a5540; --accent-ink:#fffaf6; --sage:#6f8f6c; --sage-soft:#e3ece0; --gold:#b98a3e;
+  --t1:#c98a6a; --t2:#7f9fc2; --t3:#d48a9a; --t4:#6f9a8c; --t5:#c7a24e; --t6:#9a7bb0;
+  --shadow:0 1px 2px rgba(75,50,40,.06),0 10px 30px -14px rgba(75,50,40,.22);
+  --f-display:"Cormorant","Cormorant Garamond",Georgia,serif; --f-body:"Lora",Georgia,serif;
+  --f-ui:"Manrope","Segoe UI",system-ui,-apple-system,sans-serif; --f-script:"Marck Script","Segoe Script",cursive;
+  color-scheme:light;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --paper:#1d1613; --surface:#271e1a; --blush:#33261f; --ink:#f1e4da; --muted:#b9a090; --line:#3f312a;
+  --accent:#e2aa8d; --accent-ink:#2a1c15; --sage:#9fc09a; --sage-soft:#26332a; --gold:#d9b06a;
+  --t1:#e0a585; --t2:#9cbbe0; --t3:#e8a5b3; --t4:#8fbfae; --t5:#e0c06e; --t6:#bb9cd1;
+  --shadow:0 1px 2px rgba(0,0,0,.3),0 12px 30px -14px rgba(0,0,0,.6); color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#1d1613; --surface:#271e1a; --blush:#33261f; --ink:#f1e4da; --muted:#b9a090; --line:#3f312a;
+  --accent:#e2aa8d; --accent-ink:#2a1c15; --sage:#9fc09a; --sage-soft:#26332a; --gold:#d9b06a;
+  --t1:#e0a585; --t2:#9cbbe0; --t3:#e8a5b3; --t4:#8fbfae; --t5:#e0c06e; --t6:#bb9cd1;
+  --shadow:0 1px 2px rgba(0,0,0,.3),0 12px 30px -14px rgba(0,0,0,.6); color-scheme:dark}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html,body{margin:0}
+body{background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:17px;line-height:1.6;min-height:100vh;
+  padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+button{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:8px}
+h1,h2,h3{font-family:var(--f-display);font-weight:600;line-height:1.12;text-wrap:balance;margin:0}
+p{margin:0}
+.wrap{max-width:660px;margin:0 auto;padding-block:28px 64px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:flex;flex-direction:column;gap:22px}
+.brand{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.brand .sig{font-family:var(--f-script);font-size:1.5rem;color:var(--accent);line-height:1}
+.brand a{font-family:var(--f-ui);font-size:.82rem;color:var(--muted);text-decoration:none;font-weight:600}
+.brand a:hover{color:var(--accent)}
+.eyebrow{font-family:var(--f-ui);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:22px;padding:30px;box-shadow:var(--shadow);display:flex;flex-direction:column;gap:18px}
+.muted{color:var(--muted)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:none;border-radius:999px;padding:13px 24px;font-family:var(--f-ui);font-weight:700;font-size:.95rem;cursor:pointer;background:var(--accent);color:var(--accent-ink);text-decoration:none}
+.btn:hover{filter:brightness(1.06)}
+.btn.ghost{background:transparent;color:var(--ink);box-shadow:inset 0 0 0 1.5px var(--line)}
+.btn.ghost:hover{background:var(--blush)}
+.btns{display:flex;flex-wrap:wrap;gap:10px}
+
+/* intro */
+.orn{display:block;width:120px;height:120px;margin:0 auto}
+.orn path,.orn circle{fill:none;stroke:var(--accent);stroke-width:1;opacity:.55}
+.intro h1{font-size:clamp(2.3rem,7vw,3.2rem);text-align:center}
+.intro .lead{text-align:center;font-size:1.08rem;color:var(--muted);max-width:46ch;margin:0 auto}
+.scale{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.scale div{padding:14px 12px;border-radius:14px;background:var(--paper);text-align:center;display:flex;flex-direction:column;gap:2px}
+.scale b{font-family:var(--f-display);font-size:1.8rem;line-height:1;color:var(--accent)}
+.scale span{font-family:var(--f-ui);font-size:.82rem;color:var(--muted)}
+.facts{display:flex;justify-content:center;gap:18px;flex-wrap:wrap;font-family:var(--f-ui);font-size:.85rem;color:var(--muted);font-weight:600}
+.note{display:flex;gap:12px;padding:14px 16px;border-radius:14px;background:var(--blush);font-size:.95rem}
+.note::before{content:"";flex:none;width:4px;border-radius:4px;background:var(--accent)}
+
+/* quiz */
+.top{display:flex;align-items:center;gap:14px}
+.bar{flex:1;height:8px;border-radius:8px;background:var(--line);overflow:hidden}
+.bar i{display:block;height:100%;background:var(--accent);border-radius:8px;transition:width .35s ease}
+.count{font-family:var(--f-ui);font-size:.85rem;font-weight:700;font-variant-numeric:tabular-nums;color:var(--muted);white-space:nowrap}
+.q{min-height:clamp(8.5rem,30vh,11rem);display:flex;align-items:center;justify-content:center;text-align:center}
+.q p{font-family:var(--f-display);font-size:clamp(1.55rem,5vw,2.05rem);line-height:1.25;font-weight:500}
+.q.anim p{animation:qin .35s ease}
+@keyframes qin{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.answers{display:flex;flex-direction:column;gap:10px}
+.ans{display:grid;grid-template-columns:44px minmax(0,1fr);gap:14px;align-items:center;text-align:left;padding:14px 18px;border-radius:16px;border:1.5px solid var(--line);background:var(--paper);cursor:pointer;width:100%;transition:border-color .15s,background .15s,transform .1s}
+.ans:hover{border-color:var(--accent)}
+.ans:active{transform:scale(.99)}
+.ans .pts{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;font-family:var(--f-display);font-weight:700;font-size:1.5rem;background:var(--surface);border:1px solid var(--line)}
+.ans b{display:block;font-family:var(--f-ui);font-size:1rem}
+.ans[aria-pressed="true"]{border-color:var(--accent);background:var(--blush)}
+.ans[aria-pressed="true"] .pts{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.qfoot{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.link{background:none;border:none;cursor:pointer;font-family:var(--f-ui);font-weight:600;font-size:.9rem;color:var(--muted);padding:8px 4px}
+.link:hover{color:var(--accent)}
+.link:disabled{opacity:.35;cursor:default}
+
+/* result */
+.hero-r{text-align:center;display:flex;flex-direction:column;gap:12px;align-items:center}
+.hero-r .badge{width:92px;height:92px;border-radius:50%;display:grid;place-items:center;font-family:var(--f-display);font-size:2.1rem;font-weight:700;color:var(--accent-ink);background:var(--tc);box-shadow:0 0 0 8px color-mix(in srgb,var(--tc) 22%,transparent)}
+.hero-r h1{font-size:clamp(2.2rem,7vw,3rem)}
+.hero-r .pct{font-family:var(--f-ui);font-weight:700;font-size:.9rem;color:var(--muted)}
+.trio{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.trio div{padding:16px;border-radius:16px;background:var(--paper);display:flex;flex-direction:column;gap:6px}
+.trio b{font-family:var(--f-ui);font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.trio p{font-size:1rem}
+.permission{padding:20px 22px;border-radius:18px;background:var(--sage-soft);display:flex;flex-direction:column;gap:6px}
+.permission p{font-family:var(--f-display);font-size:1.45rem;font-style:italic;line-height:1.3}
+.profile{display:flex;flex-direction:column;gap:12px}
+.prow{display:grid;grid-template-columns:minmax(0,190px) minmax(0,1fr) 46px;gap:12px;align-items:center;font-family:var(--f-ui);font-size:.9rem}
+.prow .nm{font-weight:600;line-height:1.25}
+.prow.lead .nm{color:var(--accent)}
+.ptrack{height:12px;border-radius:12px;background:var(--line);overflow:hidden}
+.ptrack i{display:block;height:100%;border-radius:12px;background:var(--tc);width:0;transition:width .9s cubic-bezier(.2,.8,.2,1)}
+.prow .v{text-align:right;font-weight:700;font-variant-numeric:tabular-nums;color:var(--muted)}
+.types{display:flex;flex-direction:column;gap:10px}
+details.type{border:1px solid var(--line);border-radius:16px;background:var(--paper);overflow:hidden}
+details.type summary{cursor:pointer;list-style:none;display:grid;grid-template-columns:14px minmax(0,1fr) auto;gap:12px;align-items:center;padding:14px 16px;font-family:var(--f-ui);font-weight:600}
+details.type summary::-webkit-details-marker{display:none}
+details.type summary .dot{width:14px;height:14px;border-radius:50%;background:var(--tc)}
+details.type summary .chev{color:var(--muted);transition:transform .2s}
+details.type[open] summary .chev{transform:rotate(180deg)}
+details.type .body{padding:0 16px 16px 42px;display:flex;flex-direction:column;gap:8px;font-size:.98rem}
+.drivers{display:flex;flex-direction:column;gap:8px}
+.drv{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:6px 12px;padding:12px 14px;border-radius:14px;background:var(--paper);align-items:center}
+.drv b{font-family:var(--f-ui);font-size:.95rem}
+.drv span.lvl{font-family:var(--f-ui);font-size:.75rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:4px 10px;border-radius:999px}
+.lvl.l2{background:color-mix(in srgb,var(--accent) 18%,transparent);color:var(--accent)}
+.lvl.l1{background:color-mix(in srgb,var(--gold) 18%,transparent);color:var(--gold)}
+.lvl.l0{background:var(--line);color:var(--muted)}
+.drv p{grid-column:1/-1;font-size:.93rem;color:var(--muted)}
+.closing{font-size:1.05rem}
+.closing blockquote{margin:0;padding:16px 20px;border-left:3px solid var(--accent);background:var(--paper);border-radius:0 14px 14px 0;font-family:var(--f-display);font-size:1.3rem;font-style:italic;line-height:1.35}
+.cta{background:linear-gradient(135deg,var(--blush),var(--surface));text-align:center;align-items:center}
+.cta h2{font-size:1.9rem}
+.toast{position:fixed;left:50%;bottom:calc(22px + env(safe-area-inset-bottom,0px));transform:translate(-50%,20px);opacity:0;background:var(--ink);color:var(--paper);padding:10px 18px;border-radius:999px;font-family:var(--f-ui);font-size:.88rem;font-weight:600;transition:all .3s;pointer-events:none;width:max-content;max-width:calc(100vw - 32px);text-align:center}
+.toast.on{opacity:1;transform:translate(-50%,0)}
+footer{text-align:center;font-family:var(--f-ui);font-size:.78rem;color:var(--muted)}
+@media (max-width:560px){
+  body{font-size:16px}
+  .card{padding:22px 18px;border-radius:18px}
+  .trio{grid-template-columns:minmax(0,1fr)}
+  .prow{grid-template-columns:minmax(0,1fr) 46px;gap:6px 10px}
+  .prow .ptrack{grid-column:1/-1;grid-row:2}
+  .scale b{font-size:1.5rem}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="brand"><span class="sig">Alexandra Fursova</span><a href="../">Тетрадь «Самооценка 2.0» →</a></div>
+
+  <!-- INTRO -->
+  <section class="card intro" id="intro">
+    <svg class="orn" id="orn" viewBox="-60 -60 120 120" aria-hidden="true"></svg>
+    <span class="eyebrow" style="text-align:center">Тест психолога Александры Фурсовой</span>
+    <h1>Кто я в сценарии своей жизни?</h1>
+    <p class="lead">Тест основан на модели личностных адаптаций Вэнна Джойнса и переведён на язык жизненных ситуаций: отношения с близкими, работа, реакция на критику и внутренние ощущения.</p>
+    <div class="facts"><span>37 утверждений</span><span>≈ 7 минут</span><span>6 адаптаций + 5 драйверов</span></div>
+    <p>Оценивайте не то, каким вы <i>хотите</i> быть, а то, как вы <i>реально</i> ведёте себя в 80% случаев, особенно в стрессе.</p>
+    <div class="scale"><div><b>0</b><span>совсем не про меня</span></div><div><b>1</b><span>иногда бывает</span></div><div><b>2</b><span>это точно про меня!</span></div></div>
+    <div class="btns" style="justify-content:center"><button class="btn" id="startBtn">Начать тест</button><button class="btn ghost" id="resumeBtn" hidden>Продолжить с вопроса 1</button></div>
+    <p class="muted" style="font-size:.88rem;text-align:center">Ответы никуда не отправляются и видны только вам.</p>
+  </section>
+
+  <!-- QUIZ -->
+  <section class="card" id="quiz" hidden>
+    <div class="top"><div class="bar"><i id="bar" style="width:0"></i></div><span class="count" id="count">1 / 37</span></div>
+    <div class="q" id="q" aria-live="polite"><p id="qText"></p></div>
+    <div class="answers" role="group" aria-label="Насколько это про вас?">
+      <button class="ans" data-v="0" aria-pressed="false"><span class="pts">0</span><span><b>Совсем не про меня</b></span></button>
+      <button class="ans" data-v="1" aria-pressed="false"><span class="pts">1</span><span><b>Иногда бывает</b></span></button>
+      <button class="ans" data-v="2" aria-pressed="false"><span class="pts">2</span><span><b>Это точно про меня!</b></span></button>
+    </div>
+    <div class="qfoot"><button class="link" id="backBtn">← Назад</button><span class="muted" style="font-family:var(--f-ui);font-size:.8rem">Можно нажимать клавиши 0, 1, 2</span></div>
+  </section>
+
+  <!-- RESULT -->
+  <div id="result" hidden style="display:flex;flex-direction:column;gap:22px">
+    <section class="card" id="resHero"></section>
+    <section class="card">
+      <div><span class="eyebrow">Ваш профиль</span><h2 style="font-size:1.8rem">Все шесть адаптаций</h2></div>
+      <p class="muted">У каждого человека есть все адаптации в разной степени. Процент показывает, насколько выражена каждая из них.</p>
+      <div class="profile" id="profile"></div>
+    </section>
+    <section class="card">
+      <div><span class="eyebrow">Усилители</span><h2 style="font-size:1.8rem">Ваши драйверы</h2></div>
+      <p class="muted">Драйверы — внутренние «приказы», которые включаются в стрессе и усиливают адаптацию.</p>
+      <div class="drivers" id="drivers"></div>
+    </section>
+    <section class="card closing">
+      <blockquote>Ваш результат — не диагноз. Это ваша суперсила, которая просто иногда «зашкаливает».</blockquote>
+      <p id="closingTxt"></p>
+      <p>С вами всё так. Просто когда-то вы адаптировались именно так, чтобы выжить и сохранить любовь близких. Хотите узнать, какие фразы из детства создали вашу адаптацию и как их «переписать»?</p>
+    </section>
+    <section class="card">
+      <div><span class="eyebrow">Справочник</span><h2 style="font-size:1.8rem">Все адаптации кратко</h2></div>
+      <div class="types" id="types"></div>
+    </section>
+    <section class="card cta">
+      <h2>Следующий шаг</h2>
+      <p class="muted">Начните менять сценарий: рабочая тетрадь «Самооценка 2.0» с упражнениями, мандалой и дневником на 101 день.</p>
+      <div class="btns" style="justify-content:center">
+        <a class="btn" href="../">Открыть тетрадь</a>
+        <a class="btn ghost" id="tgBtn" href="#" target="_blank" rel="noopener" hidden>Расшифровки в Telegram</a>
+        <button class="btn ghost" id="shareBtn">Поделиться результатом</button>
+        <button class="btn ghost" id="againBtn">Пройти заново</button>
+      </div>
+    </section>
+  </div>
+
+  <footer>© Александра Фурсова · психолог, писатель</footer>
+</div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+(function(){
+/* Ссылка на Telegram-канал: вставьте адрес, и в конце теста появится кнопка */
+const TG_LINK='';
+
+const KEY='scenario-test:v1';
+const $=s=>document.querySelector(s), $$=s=>Array.from(document.querySelectorAll(s));
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+
+const TYPES={
+ A:{name:'Ответственный Работоголик',short:'Работоголик',color:'--t1',letter:'Р',
+   power:'Надёжность. На вас можно положиться: вы доводите дела до конца и держите слово.',
+   trap:'Перфекционизм. Отдых кажется незаслуженным, а ошибка — катастрофой.',
+   fear:'Совершить ошибку.',
+   perm:'Я достаточно хорош(а), даже когда отдыхаю и ошибаюсь.',
+   close:'Вы — мотор этого мира, но ваша спина уже кричит о помощи.'},
+ B:{name:'Творческий Мечтатель',short:'Мечтатель',color:'--t2',letter:'М',
+   power:'Воображение. Вы видите то, что недоступно другим, и умеете создавать новое.',
+   trap:'Уход в себя. Вместо конфликта или просьбы — тишина и дистанция.',
+   fear:'Что люди будут слишком навязчивы.',
+   perm:'Я могу быть с людьми и при этом оставаться собой.',
+   close:'Вы видите то, что недоступно другим, но часто чувствуете себя одиноким среди людей.'},
+ V:{name:'Сверхреагирующий Энтузиаст',short:'Энтузиаст',color:'--t3',letter:'Э',
+   power:'Эмпатия и яркость. Вы заряжаете людей, тонко чувствуете и согреваете.',
+   trap:'Драма. Чувства захлёстывают раньше мыслей, а близость превращается в растворение.',
+   fear:'Быть незаметным.',
+   perm:'Меня видят и любят, даже когда я спокоен(на).',
+   close:'Вы освещаете любую комнату, но порой отдаёте себя без остатка, лишь бы вас заметили.'},
+ G:{name:'Блестящий Скептик',short:'Скептик',color:'--t4',letter:'С',
+   power:'Интеллект и бдительность. Вы замечаете детали и риски, которые другие пропускают.',
+   trap:'Подозрительность. Контроль и проверка вместо доверия.',
+   fear:'Предательства.',
+   perm:'Можно доверять — и при этом оставаться в безопасности.',
+   close:'Вы видите насквозь, но так устаёте всё время быть начеку.'},
+ D:{name:'Игривый Бунтарь',short:'Бунтарь',color:'--t5',letter:'Б',
+   power:'Упорство. Вас трудно сломить, вы умеете отстаивать свою свободу.',
+   trap:'Пассивная агрессия. «Забыть», затянуть или обидеться вместо прямого «нет».',
+   fear:'Контроля и потери свободы.',
+   perm:'Я могу прямо сказать «нет» — и остаться свободным(ой).',
+   close:'Вы не позволите себя сломать, но борьба отнимает силы, которые могли бы пойти на ваши мечты.'},
+ E:{name:'Очаровательный Манипулятор',short:'Манипулятор',color:'--t6',letter:'О',
+   power:'Харизма. Вы легко очаровываете, быстро действуете и не боитесь риска.',
+   trap:'Использование людей. Отношения превращаются в игру на победу.',
+   fear:'Быть «проигравшим» или эксплуатируемым.',
+   perm:'Я могу быть близким(ой) с людьми — и при этом не проиграть.',
+   close:'Вы умеете выигрывать, но настоящая близость пугает сильнее любого риска.'}
+};
+const DRIVERS=[
+ {name:'«Торопись»',d:'Внутренний секундомер: спешка, даже когда время есть.'},
+ {name:'«Будь сильным»',d:'Нельзя показывать слабость и просить о помощи.'},
+ {name:'«Старайся»',d:'Ценен процесс усилий, а не результат — дела часто остаются незаконченными.'},
+ {name:'«Радуй других»',d:'Чужое расстройство невыносимо, свои желания отходят на второй план.'},
+ {name:'«Будь совершенным»',d:'Всё, что меньше идеала, ощущается как провал.'}
+];
+const ITEMS={
+ A:['Мне трудно расслабиться, пока вся работа не сделана идеально.','Я часто перепроверяю за собой и другими, чтобы не допустить ошибку.','Для меня важно быть «правильным» и порядочным человеком в глазах общества.','Я чувствую вину, если просто сижу без дела.','В разговоре я ценю логику и факты больше, чем эмоции.','Мои близкие иногда называют меня «занудой» или «сухарём».'],
+ B:['Я часто чувствую себя «не от мира сего», будто наблюдаю за жизнью со стороны.','Мне жизненно необходимо одиночество, чтобы восстановить силы.','Я лучше промолчу и уйду в себя, чем буду вступать в открытый конфликт.','Люди часто говорят, что я творческий человек с богатым воображением.','Мне сложно первым начать разговор в большой компании.','Я часто «витаю в облаках», даже если нахожусь на важном совещании.'],
+ V:['Я легко загораюсь новой идеей и так же легко могу расплакаться от чувств.','Мне важно быть в центре внимания; если меня не замечают, я чувствую себя ненужным.','Я сначала чувствую, а потом думаю (и иногда жалею о сказанном на эмоциях).','В отношениях я склонен «растворяться» в партнёре и очень боюсь его потерять.','Я часто говорю «Мне кажется…» вместо «Я думаю…».'],
+ G:['Я всегда начеку и жду, что люди могут меня подвести или обмануть.','Я склонен контролировать всё и всех вокруг, чтобы чувствовать себя в безопасности.','Я очень чувствителен к критике, даже если она конструктивная.','В отношениях я часто бываю ревнивым и подозрительным.','Я горжусь своим острым умом и способностью видеть детали, которые другие не замечают.'],
+ D:['Если на меня давят, я обещаю сделать, но «забываю» или делаю очень медленно.','Мой девиз: «Ты не можешь заставить меня это сделать!»','Я часто спорю и вступаю в борьбу за власть, даже из-за мелочей.','Люди говорят, что я упрямый и со мной сложно договориться.','Я часто дуюсь и обижаюсь вместо того, чтобы прямо сказать, что мне не нравится.'],
+ E:['Жизнь — это игра, и я намерен в ней победить.','Я легко могу очаровать любого человека, если мне от него что-то нужно.','Правила созданы для того, чтобы их нарушать (или обходить).','Я люблю риск, азарт и сильные ощущения.','Я не склонен долго сочувствовать людям: каждый сам за себя.'],
+ R:['Я часто тороплюсь, даже если времени достаточно.','Я чувствую, что должен быть сильным и не показывать слабость.','Я очень стараюсь, но часто не довожу дела до конца.','Для меня невыносимо расстроить другого человека.','Если я не сделал всё идеально — я чувствую себя неудачником.']
+};
+/* Перемешанный порядок: блоки не идут подряд, чтобы ответы были честнее */
+const ORDER=(function(){
+  const keys=['A','B','V','G','D','E','R'],idx={};keys.forEach(k=>idx[k]=0);const out=[];let round=0;
+  while(out.length<37){const rot=keys.slice(round%7).concat(keys.slice(0,round%7));
+    for(const k of rot){if(idx[k]<ITEMS[k].length){const prev=out[out.length-1];if(prev&&prev.b===k)continue;out.push({b:k,i:idx[k]++})}}
+    round++;}
+  return out;
+})();
+const N=ORDER.length;
+
+let st={pos:0,ans:{}};
+try{const r=JSON.parse(localStorage.getItem(KEY)||'null');if(r&&r.ans)st=r}catch(e){}
+const save=()=>{try{localStorage.setItem(KEY,JSON.stringify(st))}catch(e){}};
+const answered=()=>Object.keys(st.ans).length;
+
+function toast(t){const el=$('#toast');el.textContent=t;el.classList.add('on');clearTimeout(el._t);el._t=setTimeout(()=>el.classList.remove('on'),2200)}
+function show(id){['intro','quiz','result'].forEach(x=>$('#'+x).hidden=x!==id);window.scrollTo({top:0})}
+
+/* ornament */
+(function(){let h='';for(let k=0;k<12;k++){const a=k*30*Math.PI/180;const x=Math.sin(a),y=-Math.cos(a);
+  h+=`<path d="M0 0 Q${(x*30-y*12).toFixed(1)} ${(y*30+x*12).toFixed(1)} ${(x*52).toFixed(1)} ${(y*52).toFixed(1)} Q${(x*30+y*12).toFixed(1)} ${(y*30-x*12).toFixed(1)} 0 0"/>`}
+  $('#orn').innerHTML=h+'<circle r="56"/><circle r="10"/><circle r="22"/>'})();
+
+function renderQ(anim){
+  const it=ORDER[st.pos];$('#qText').textContent=ITEMS[it.b][it.i];
+  $('#count').textContent=(st.pos+1)+' / '+N;$('#bar').style.width=(answered()/N*100)+'%';
+  const v=st.ans[st.pos];$$('.ans').forEach(b=>b.setAttribute('aria-pressed',String(+b.dataset.v===v)));
+  $('#backBtn').disabled=st.pos===0;
+  if(anim){const q=$('#q');q.classList.remove('anim');void q.offsetWidth;q.classList.add('anim')}
+}
+let lock=false;
+function answer(v){
+  if(lock)return;st.ans[st.pos]=v;save();renderQ(false);lock=true;
+  setTimeout(()=>{lock=false;
+    if(st.pos<N-1){st.pos++;save();renderQ(true)}
+    else{const miss=ORDER.findIndex((_,i)=>st.ans[i]===undefined);if(miss>=0){st.pos=miss;renderQ(true);toast('Остался вопрос без ответа')}else{st.done=true;save();renderResult();show('result')}}
+  },260);
+}
+$$('.ans').forEach(b=>b.addEventListener('click',()=>answer(+b.dataset.v)));
+document.addEventListener('keydown',e=>{if($('#quiz').hidden)return;if(['0','1','2'].includes(e.key))answer(+e.key);if(e.key==='ArrowLeft'&&st.pos>0){st.pos--;renderQ(true)}});
+$('#backBtn').onclick=()=>{if(st.pos>0){st.pos--;save();renderQ(true)}};
+
+function scores(){
+  const s={};Object.keys(ITEMS).forEach(k=>s[k]={sum:0,max:ITEMS[k].length*2});
+  ORDER.forEach((it,i)=>{const v=st.ans[i];if(v!=null)s[it.b].sum+=v});
+  const drv=ITEMS.R.map((_,j)=>{const i=ORDER.findIndex(o=>o.b==='R'&&o.i===j);return st.ans[i]||0});
+  const types=Object.keys(TYPES).map(k=>({k,pct:Math.round(s[k].sum/s[k].max*100),sum:s[k].sum,max:s[k].max})).sort((a,b)=>b.pct-a.pct||b.sum-a.sum);
+  return {types,drv};
+}
+function renderResult(){
+  const {types,drv}=scores();const top=types[0],T=TYPES[top.k];
+  const ties=types.filter(t=>t.pct===top.pct&&t.k!==top.k);
+  const second=types[1];
+  $('#resHero').innerHTML=`<div class="hero-r" style="--tc:var(${T.color})"><span class="eyebrow">Ваша ведущая адаптация</span><div class="badge">${T.letter}</div><h1>${T.name}</h1>
+    <span class="pct">выражена на ${top.pct}%${ties.length?` · столько же у адаптации «${ties.map(t=>TYPES[t.k].name).join('», «')}»`:''}</span></div>
+    <div class="trio"><div><b>Ваша сила</b><p>${T.power}</p></div><div><b>Ваша ловушка</b><p>${T.trap}</p></div><div><b>Вы боитесь</b><p>${T.fear}</p></div></div>
+    <div class="permission"><span class="eyebrow">Фраза, которую вам важно услышать</span><p>«${T.perm}»</p></div>
+    ${!ties.length&&second.pct>=50?`<p class="muted">Вторая по силе адаптация — <b>${TYPES[second.k].name}</b> (${second.pct}%). Её черты тоже заметны в вашем поведении, особенно в стрессе.</p>`:''}`;
+  $('#profile').innerHTML=types.map((t,i)=>`<div class="prow ${i===0?'lead':''}" style="--tc:var(${TYPES[t.k].color})"><span class="nm">${TYPES[t.k].name}</span><div class="ptrack"><i data-w="${t.pct}"></i></div><span class="v">${t.pct}%</span></div>`).join('');
+  requestAnimationFrame(()=>requestAnimationFrame(()=>$$('#profile i').forEach(i=>i.style.width=i.dataset.w+'%')));
+  const lv=['почти нет','иногда','сильный'];
+  const order=drv.map((v,j)=>({v,j})).sort((a,b)=>b.v-a.v);
+  $('#drivers').innerHTML=order.map(({v,j})=>`<div class="drv"><b>${DRIVERS[j].name}</b><span class="lvl l${v}">${lv[v]}</span><p>${DRIVERS[j].d}</p></div>`).join('');
+  $('#closingTxt').textContent=`Например, если вы ${T.short}: ${T.close.charAt(0).toLowerCase()+T.close.slice(1)}`;
+  $('#types').innerHTML=Object.keys(TYPES).map(k=>{const t=TYPES[k];return `<details class="type" style="--tc:var(${t.color})" ${k===top.k?'open':''}><summary><span class="dot"></span><span>${t.name}</span><span class="chev">⌄</span></summary><div class="body"><p><b>Сила:</b> ${t.power}</p><p><b>Ловушка:</b> ${t.trap}</p><p><b>Страх:</b> ${t.fear}</p></div></details>`}).join('');
+  if(TG_LINK){$('#tgBtn').href=TG_LINK;$('#tgBtn').hidden=false}
+}
+$('#shareBtn').onclick=()=>{const {types}=scores();const t=TYPES[types[0].k];
+  const txt=`Мой результат в тесте «Кто я в сценарии своей жизни?» — ${t.name} (${types[0].pct}%). Пройдите тест: ${location.href.split('#')[0]}`;
+  if(navigator.share){navigator.share({text:txt}).catch(()=>{});return}
+  try{navigator.clipboard.writeText(txt).then(()=>toast('Текст скопирован — отправьте его подруге'),()=>toast(txt))}catch(e){toast(txt)}};
+$('#againBtn').onclick=()=>{st={pos:0,ans:{}};save();renderQ(true);show('quiz')};
+$('#startBtn').onclick=()=>{if(answered()&&!st.done){st={pos:0,ans:{}};save()}if(st.done){st={pos:0,ans:{}};save()}renderQ(true);show('quiz')};
+$('#resumeBtn').onclick=()=>{renderQ(true);show('quiz')};
+
+if(st.done&&answered()===N){renderResult();show('result')}
+else if(answered()>0){$('#resumeBtn').hidden=false;$('#resumeBtn').textContent=`Продолжить с вопроса ${st.pos+1}`;$('#startBtn').textContent='Начать заново'}
+})();
+</script>
+</body>
+</html>
